@@ -1,0 +1,114 @@
+ ------
+ Introduction
+ ------
+ Nicolas Herbaut
+ ------
+ YYYY-MM-DD
+ ------
+ 
+ Exemple de settings.xml
+ 
+   Voici un exemple de settings xml \u00e0 cr\u00e9er pour pouvoir utiliser le plugin. Remplacer les valeurs avec vos propres mot de passe nexus, votre propre private_token gitlab tir\u00e9 de {{http://git.erel.net/profile/account}}
+ 
+------------------------
+
+
+<?xml version="1.0"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>nicolas</id>
+      <properties>
+        <gitlabPrivateToken>9fdTwV5eYcgaNZ49gAp</gitlabPrivateToken>
+        <deploy.server>http://192.168.0.72:8080/manager</deploy.server>
+        <redmineAPIKey>faf7d2718204a68622dbb829e1f85103fa68138f</redmineAPIKey>
+        <!-- check out this page to get it: http://redmine.erel.net/my/account !-->
+        <redmineHost>http://redmine.erel.net</redmineHost>
+      </properties>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <url>http://central</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>nicolas</activeProfile>
+  </activeProfiles>
+  <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <!-- <url>http://repo.erel.net/content/groups/public/</url> -->
+      <url>http://nexus.erel.local/nexus/content/groups/public/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+  <servers>
+<!-- utilisé pour télécharger les dépendances -->
+    <server>
+      <id>nexus</id>
+      <username>nherbaut</username>
+      <password>tuabrehn</password>
+    </server>
+
+<!-- utilisé pour uploader les snapshots -->
+    <server>
+      <id>snapshots</id>
+      <username>nherbaut</username>
+      <password>tuabrehn</password>
+    </server>
+
+<!-- utilisé pour uploader des versions release -->
+    <server>
+      <id>releases</id>
+      <username>nherbaut</username>
+      <password>tuabrehn</password>
+    </server>
+
+<!-- utilisé pour pousser une webapp sur un serveur tomcat -->
+    <server>
+      <id>TomcatServer</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+    <server>
+      <id>TomcatServer.qualif1</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+    <server>
+      <id>TomcatServer.qualif2</id>
+      <username>admin</username>
+      <password>admin</password>
+    </server>
+  </servers>
+<!-- groups de plugin authorisés -->
+  <pluginGroups>
+    <pluginGroup>net.erel.maven.plugins</pluginGroup>
+    <pluginGroup>org.apache.tomcat.maven</pluginGroup>
+  </pluginGroups>
+</settings>
+
+----------------------------------------------

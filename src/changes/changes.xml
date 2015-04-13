@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<document xmlns="http://maven.apache.org/changes/1.0.0">
+    <properties>
+        <title>Suivi des changements pour erel-maven-plugin</title>
+        <author email="n.herbaut@erel.net">Nicolas</author>
+    </properties>
+    <body>
+        <release version="1.7.0">
+            <action dev="nherbaut" type="add">
+Setup du plugin à l'aide du nouveau goal erel:setup
+</action>
+        </release>
+        <release version="1.6.0-RC06" date="2013-05-13" description="Rendre le plugin connecté avec l'environement de développement">
+            <action dev="nherbaut" type="add">
+Utilisation de Redmine pour les feature request et les releases
+</action>
+            <action dev="nherbaut" type="add">
+gestion des changements avec changelog
+</action>
+        </release>
+        <release version="1.5.0" date="2013-04-28" description="solidification des opérations integration">
+            <action dev="nherbaut" type="add">
+ajout de préconditions pour le promote
+</action>
+        </release>
+        <release version="1.4" date="2013-03-25" description="gestion des hotfixes">
+            <action dev="nherbaut" type="add">
+				lors de merge request, on vérifie
+				si on est sur develop ou master au moment de faire la feature branch
+				(le nom de la branch va en dépendre). quand on fait
+				erel:merge-request, le prefix de la branch va être utilisé pour
+				savoir si on est dans un hotfix (mr vers master) ou feature (mr vers
+				develop)
+				Le hotfix permet la monté de version sur la branch
+			</action>
+            <action dev="nherbaut" type="fix">
+				lors du promote, bug lors de
+				commit
+			</action>
+            <action dev="nherbaut" type="fix">
+				vérifie qu'il n'y ait pas de modifications locale avant feature branch
+			</action>
+        </release>
+        <release version="1.3" date="2013-03-19" description="Version qualifiée sur opflux-parent, extranet">
+            <action dev="nherbaut" type="add">
+				Goals d'intégration
+			</action>
+        </release>
+        <release version="1.2" date="2013-03-01" description="Version utilisé par le développeur">
+            <action dev="nherbaut" type="add">
+				Goals de développement
+				erel:checkout, erel:feature-branch, erel:merge-request
+			</action>
+        </release>
+    </body>
+</document>

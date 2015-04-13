@@ -1,0 +1,87 @@
+<html>
+<head>
+</head>
+<body>
+	<h1>Principe de l'intégration</h1>
+	<p>faisons l'hypothèque que nous sommes sur la version:</p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[1.3.0-SNAPSHOT]]>
+		</ac:plain-text-body>
+	</ac:macro>
+	<p>la version en production est la version:</p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[1.2.6]]>
+		</ac:plain-text-body>
+	</ac:macro>
+	<h2>Passer en qualif</h2>
+	<p>
+		Le passage en qualif nécessite la création d'une version <strong>releasée</strong>,
+		une <span style="color: rgb(255, 0, 0);">release candidate</span>.
+	</p>
+	<p>A pertir de develop L'intégrateur va mettre à jour les dépendances du projet à l'aide du mojo dep</p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[mvn erel:dep]]>
+		</ac:plain-text-body>
+	</ac:macro> 
+	<p>le plugin mettra à jour les dépendances explicites des projets erel, et affichera les proprietes qui peuvent être mises à jour. L'intégrateur devra controller et mettre à jour le pom manuellement en fonction de la sortie du plugin</p>
+	<p>Toujours à partir de dévelop, l'inégrateur va appeller</p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[mvn erel:release-rc1]]>
+		</ac:plain-text-body>
+	</ac:macro>
+	<p>ce qui va avoir plusieur effets:</p>
+	<ul>
+		<li>passer la version de develop à 1.4.0-SNAPSHOT</li>
+		<li>créer la branche release-1.3.0</li>
+		<li>sur la branche 1.3.0, la version va être 1.3.0-RC1</li>
+		<li>cette version va être déployée sur nexus</li>
+		<li>un version de développement sur la branch release-1.3.0 va
+			être 1.3.0-RC2-SNAPSHOT</li>
+	</ul>
+	<p>A partir des binaires pris de la qualif, on peut commencer les
+		tests.</p>
+	<h2>Releaser de nouvelles versions RC</h2>
+	<p>si des bugs sont détectés en qualif, on doit releaser de
+		nouvelles versions RC qui doivent être testée. Pour cela,
+		l'intégrateur doit taper</p>
+	<p></p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[mvn erel:release-next]]>
+		</ac:plain-text-body>
+	</ac:macro>
+	<p>Ceci aura les effets suivants:</p>
+	<ul>
+		<li>sur la branche release-1.3.0 on va passer sur la version
+			1.3.0-RC2</li>
+		<li>la version 1.3.0-RC2 va être déployée sur nexus</li>
+		<li>la nouvelle version de développement est 1.3.0-RC3-SNAPSHOT</li>
+	</ul>
+	<h2>Passer le build en prod</h2>
+	<p>A chaque vois qu'une version a été releasée, un tag a été créer.
+		Une fois la version validée en qualif, il faut passer d'une version
+		1.3.0-RCX à une version 1.3.0. Pour cela, on va promouvoir un tag en
+		version de prod</p>
+	<ac:macro ac:name="code">
+		<ac:plain-text-body>
+			<![CDATA[mvn erel:promote]]>
+		</ac:plain-text-body>
+	</ac:macro>
+	<p>l'effet de cette commande est de:</p>
+	<ul>
+		<li>releaser la version 1.3.0 à partir du tag sélectionné.</li>
+	</ul>
+	<p></p>
+
+	<h2>Faire la release d'un hotfix</h2>
+	<p>les hotfix sont des feature-branch faite à partir de master et
+		non à partir de develop. Elles sont prefixées par hotfix-</p>
+	<p>le process de release est semblable à celui sur develop, à part
+		que la merge request envoyée sur master doit être releasée à l'aide du
+		goal erel:release-hotfix</p>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+<HEAD>
+</HEAD>
+<BODY>
+
+	<div class="section">
+		<h1>Les Goals de développement</h1>
+
+		<div class="section">
+
+			<h3>
+				Coup d'oeil sur les Goals<a name="Coup_doeil_sur_les_Goals"></a>
+			</h3>
+			<ul>
+				<li><a href="#checkout">erel:checkout</a> permet de récupérer
+					une copie locale d'un projet erel</li>
+				<li><a href="#feature-branch">erel:feature-branch</a> permet de
+					créer une feature branch à partir d'un ticket</li>
+				<li><a href="#merge-request">erel:merge-request</a> permet de
+					soumettre la branche courrante pour une réintégration dans la
+					branche d'intégration</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<h2>
+				<a name="goal-checkout">erel:checkout</a>
+			</h2>
+			<p>Permer de récupérer le project sur le repository gitlab sur la
+				bonne branche, à jour, automatiquement à partir d'une liste de choix</p>
+			<ul>
+				<li>mvn erel:checkout</li>
+				<li>available-namespace</li>
+				<li>:3 (n.herbaut)</li>
+				<li>:7 (Integration)</li>
+				<li>: pick-a-namespace (3/7): 3</li>
+				<li>: 20 (maven-erel-plugin)</li>
+				<li>: 34 (dummy)</li>
+				<li>: 35 (deployement-tools)</li>
+				<li>: choisissez un projet à brancher</li>
+				<li>checkout terminé avec succès</li>
+				<li>: utilisez mvn <a href="http://erelfeature-branch">erel:feature-branch</a>
+					pour créer une feature branche
+				</li>
+			</ul>
+		</div>
+		<div class="section">
+			<h2>
+				<a name="feature-branch">erel:feature-branch</a>
+			</h2>
+			<p>Permer de créer intéractivement une feature branch sur le
+				projet que vous venez de récupérer</p>
+			<ul>
+				<li>>mvn erel:feature-branch</li>
+				<li>%Merci d'indiquer votre numéro de ticket : 845</li>
+				<li>%Merci d'indiquer le titre du ticket : nouvelle
+					fonctionnalite ccmo</li>
+				<li>%Switched to branch '845-nouvelle-fonctionnalite-ccmo'</li>
+				<li>%Everything up-to-date</li>
+			</ul>
+		</div>
+		<div class="section">
+			<h2>
+				<a name="merge-request">erel:merge-request</a>
+			</h2>
+			<p>Permet de soumettre votre travail à l'intégration</p>
+			<ul>
+				<li>>mvn erel:merge-request</li>
+				<li>%merci d'écrire un commentaire pour votre requète: merci
+					d'intégrer le cardstore</li>
+				<li>%êtes vous sûr de vouloir soumettre votre requète? (y/n): y</li>
+				<li>%votre requète a été envoyée</li>
+			</ul>
+		</div>
+
+		<div class="section">
+			<h2>
+				<a name="hotfix"></a>
+			</h2>
+			<p>en cas de besoin, on peut éviter de passer par des RC pour
+				générer un hotfix. Il suffit d'effectuer le feature-branch sur
+				master et plus sur develop. toutes les autres opérations restent les
+				mêmes (merge request...)</p>
+			<ul>
+				<li>>git checkout master</li>
+				<li>mvn erel:feature-branch</li>
+			</ul>
+		</div>
+	</div>
+
+</BODY>
+
+
+</html>

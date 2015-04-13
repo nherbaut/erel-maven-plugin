@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.1.0 http://maven.apache.org/xsd/decoration-1.1.0.xsd"
+	name="Apache Maven Fluido-Skin">
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.3.0</version>
+	</skin>
+
+	<custom>
+		<fluidoSkin>
+			<topBarEnabled>true</topBarEnabled>
+			<sideBarEnabled>false</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+	<bannerRight>
+		<alt>Carte Service Plus</alt>
+
+		<src>http://w2.carteservicesplus.fr/files/live/sites/systemsite/files/images/csp-banner.png</src>
+	</bannerRight>
+	<bannerLeft>
+		<alt>erel</alt>
+		<src>http://w2.carteservicesplus.fr/files/live/sites/systemsite/files/images/csp-logo.png</src>
+	</bannerLeft>
+
+
+	<body>
+		<breadcrumbs>
+
+
+			<item href="http://erel.net" name="erel" position="left" />
+			<item
+				href="http://w2.carteservicesplus.fr/cms/fr/sites/editeurs/home.html"
+				name="Editeurs" position="left" />
+			<item href="/index.html" name="Développeurs" position="left" />
+		</breadcrumbs>
+		<menu name="Description">
+			<item name="Introduction" href="index.html" />
+			<item name="API" href="../javadoc/index.html" />
+			<item name="Suivic des Versions" href="changes-report.html" />
+			<item name="Page Confluence"
+				href="https://erel.atlassian.net/wiki/display/TEC/erel-maven-plugin" />
+
+		</menu>
+		<menu name="Configuration">
+			<item name="settings.xml" href="settings.html" />
+		</menu>
+		<menu name="Usages">
+			<item name="Intégration" href="integration.html" />
+			<item name="Développement" href="developpement.html" />
+		</menu>
+
+		<menu name="Mojos">
+			<item name="add-issue" href="./add-issue-mojo.html" />
+			<item name="promote" href="./promote-mojo.html" />
+			<item name="checkout" href="./checkout-mojo.html" />
+			<item name="feature-branch" href="./feature-branch-mojo.html" />
+			<item name="release-next" href="./release-next-mojo.html" />
+			<item name="release-rc1" href="./release-rc1-mojo.html" />
+			<item name="help" href="./help-mojo.html" />
+			<item name="moulinette-mojo" href="./moulinette-mojo.html" />
+			<item name="release-hotfix" href="./release-hotfix-mojo.html" />
+			<item name="merge-request" href="./merge-request-mojo.html" />
+			<item name="setup" href="./setup-mojo.html" />
+			<item name="dep" href="./dep-mojo.html" />
+		</menu>
+
+
+
+
+
+	</body>
+</project>

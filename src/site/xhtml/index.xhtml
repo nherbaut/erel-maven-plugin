@@ -1,0 +1,106 @@
+<html>
+<head></head>
+<body>
+
+
+	<div>
+		<div>
+			<div class="section">
+				<h2>
+					erel Maven Plugin<a name="erel_Maven_Plugin"></a>
+				</h2>
+				<p>Ce plugin a été écrit pour gérer le cycle de vie des projets
+					java de erel, leur inclusion dans la branche de développement,
+					la livraison et le patching</p>
+
+			</div>
+
+
+			<h2>Mise en route</h2>
+
+			pour commencer à utiliser le plugin, il faut apporter des
+			modifications à votre fichier settings.xml. Vous pouvez prendre
+			exemple sur <a href="settings.html">le fichier settings.xml</a> donné
+			ici, ou simplement utiliser le goal <a href="setup-mojo.html"><B>erel:setup</B></a>
+			qui vous posera des questions afin de configurer votre environement.
+
+
+			<h2>Détails de Goals</h2>
+
+			<ul>
+				<li>developpement d'un nouvelle fonctionnalité
+					<ul>
+						<li><a href="checkout-mojo.html">erel:checkout</a> permet de
+							récupérer le projet sur la branche par défaut à partir d'une
+							liste</li>
+
+						<li><a href="feature-branch-mojo.html">erel:feature-branch</a>
+							permet de créer une feature branche de façon standard. Si la
+							feature branch est créer à partir de develop, c'est une nouvelle
+							fonctionnalité, sinon c'est un hotfix</li>
+						<li><a href="merge-request-mojo.html">erel:merge-request</a>
+							permet de demander à l'intégrateur de repporter les modifications
+							d'une feature branche sur la branche develop avec revue de code</li>
+					</ul>
+				</li>
+				<li>release d'une version planifiée
+					<ul>
+						<li><a href="promote-mojo.html">erel:promote</a> permet à la
+							personne en charge du déploiement de qualifier une release
+							candidate en version final</li>
+						<li><a href="release-next-mojo.html">erel:release-next</a>permet
+							de générer une nouvelle release candidate à partir d'un release
+							branch</li>
+						<li><a href="release-rc1-mojo.html">erel:release-rc1</a>permet
+							de créer une nouvelle release branch à partir de la branche
+							develop, génère la première release candidate (RC)</li>
+					</ul>
+				</li>
+
+				<li>release d'un hotfix
+					<ul>
+						<li><a href="release-hotfix-mojo.html">erel:release-hotfix</a>Permet
+							de releaser un hotfix dont la merge request a été acceptée</li>
+					</ul>
+				</li>
+
+				<li>gestion de projet
+
+					<ul>
+						<li><a href="add-issue-mojo.html">erel:add-issue</a>Permet
+							d'ajouter un ticket au changelog</li>
+
+						<li><a href="setup-mojo.html">erel:setup</a>Permet de
+							configurer le plugin</li>
+						<li><a href="dep-mojo.html">erel:setup</a>Permet de mettre à jour automatiquement
+						les dépendances d'un projet</li>	
+							
+					</ul>
+
+
+				</li>
+			</ul>
+
+
+			<p>Pour obtenir de l'aide, utilisez le Help Mojo</p>
+			<div>
+				<pre>mvn erel:help -Ddetail=true -Dgoal= 	&#60;goal-name&#62;</pre>
+			</div>
+			<h2>Utilisations Développeurs et Intégrateur</h2>
+			<ul>
+				<li><a href="developpement.html">Usage développeur</a></li>
+				<li><a href="integration.html">Usage intégrateur</a></li>
+
+			</ul>
+
+			<h2>Une commande pour chaque opération</h2>
+			<img src="images/nvie.png"></img>
+
+
+
+		</div>
+	</div>
+
+
+</body>
+</html>
